@@ -149,6 +149,7 @@ const Marchant = () => {
         }
 
         try {
+            console.log(amountPortion)
             setRequestedApproval(true);
             let res = await ContractUtils.buyPortions(library, account, amountPortion);
             setRequestedApproval(false)

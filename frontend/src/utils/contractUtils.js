@@ -4,7 +4,7 @@ import BigNumber from "bignumber.js";
 import { constants } from 'buffer';
 import { getBalanceNumber } from '../components/formatBalance';
 
-const Web3 = require('web3');
+const {Web3} = require('web3');
 const SnRContract = require("../contracts/SnRContract.json");
 const SnRContractABI = SnRContract["abi"];
 const LordContract = require("../contracts/LordContract.json");
@@ -63,7 +63,6 @@ export const getMintInfo = async (provider) => {
                 let contract = await new web3.eth.Contract(SnRContractABI, Constants.SnRAddress);
                 let price = await contract.methods.MINT_PRICE().call();
                 let minted = await contract.methods.minted().call();
-
                 let data = {
                     price: web3.utils.fromWei("" + price),
                     mintCount: minted
@@ -78,7 +77,6 @@ export const getMintInfo = async (provider) => {
             let contract = await new web3.eth.Contract(SnRContractABI, Constants.SnRAddress);
             let price = await contract.methods.MINT_PRICE().call();
             let minted = await contract.methods.minted().call();
-
             let data = {
                 price: price,
                 mintCount: minted
@@ -101,12 +99,16 @@ export const mintNFT = async (provider, address, count, autoStake, useShield) =>
 
     const web3 = new Web3(provider);
     let contract = await new web3.eth.Contract(SnRContractABI, Constants.SnRAddress)
+    let nftPrice = await contract.methods.MINT_PRICE().call();
 
+    web3.utils.fromWei(nftPrice,"ether")
+    let price = web3.utils.fromWei(nftPrice,"ether");
+    price = web3.utils.toWei(price,"ether");
+    let amount = price*count;
+    console.log(price)
+    console.log(web3.utils.fromWei(nftPrice,"ether"))
     try {
-        let nftPrice = await contract.methods.MINT_PRICE().call();
-
-        let price = new BigNumber(nftPrice);
-        let amount = price.multipliedBy(count);
+        
 
         await contract.methods.mint(count, autoStake, useShield).send({ from: address, value: amount });
         return {

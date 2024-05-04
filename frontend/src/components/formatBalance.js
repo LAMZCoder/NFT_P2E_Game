@@ -1,4 +1,4 @@
-import BigNumber from "bignumber.js";
+const BigNumber = require('bignumber.js');
 
 export const formatNumber = (num, decimalPlace) => {
   if (num % 1 != 0) return num.toFixed(decimalPlace);

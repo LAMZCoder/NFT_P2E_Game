@@ -18,7 +18,7 @@ const Recruit = () => {
     const mintInfo = useSelector(selectors.mintInfo);
     console.log('[kg] => mintInfo: ', mintInfo);
     const { account, library } = useWeb3React();
-    const [mintAmount, setMintAmount] = useState(0);
+    const [mintAmount, setMintAmount] = useState(1);
     const [showToast, setShowToast] = useState(false)
     const [toastMessage, setToastMessage] = useState("")
     const [toastType, setToastType] = useState(2) //1: success, 2: error
@@ -32,7 +32,7 @@ const Recruit = () => {
     }
 
     const setMax = () => {
-        setMintAmount(30);
+        setMintAmount(1);
     }
 
     const decreaseValue = () => {
@@ -77,6 +77,7 @@ const Recruit = () => {
             setToastMessage("Minted Successfully!");
             setFetchFlag(true);
         } else {
+            console.log(res)
             setShowToast(true);
             setToastMessage(res.status);
             setToastType(2)
