@@ -5,8 +5,8 @@ function TimerComponent(props) {
     const [rebaseString, setRebaseString] = useState("");
     const currentTime = Math.floor(new Date().getTime() / 1000);
     const [calcTime, setCalcTime] = useState(Number(props.depositTime) - currentTime + 3600 * 24 * 3);
-    // console.log('[kg] => depositTime: ', props.depositTime);
-    // console.log('[kg] => currentTime: ', currentTime);
+    console.log('[kg] => depositTime: ', props.depositTime);
+    console.log('[kg] => currentTime: ', currentTime);
 
     useEffect(() => {
         const prettified = prettifySeconds(calcTime);

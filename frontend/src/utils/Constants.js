@@ -1,9 +1,13 @@
-export const ContractAddress = "0x181aB2d2F0143cd2046253c56379f7eDb1E9C133";
-export const YENAddress = "0x096E08a74FD4C72a7A1D1ed6e228307180a4cB00";
-export const TraitsAddress = "0x9023A6A797AE09Ba7de65b3D7e5b53c2e67Fc75F";
-export const SnRAddress = "0x63Fe1694D899C80F68F0c2f1455f835331C3D231";
-export const LordAddress = "0xef83D5c21707F0Bdae106Db1CbF154B78144Dc01";
-export const MarketPlaceAddress = "0x414BBCa9A1aA347C2aD06B4cf2F283ce57FC20fc";
+
+
+
+//export const ContractAddress = "0x181aB2d2F0143cd2046253c56379f7eDb1E9C133";
+export const YENAddress = "0x2b56a980abe9e3a5737c4d4f9ba8fd2e744ae556";
+//export const TraitsAddress = "0x9023A6A797AE09Ba7de65b3D7e5b53c2e67Fc75F";
+//export const SnRAddress = "0x63Fe1694D899C80F68F0c2f1455f835331C3D231";
+export const SnRAddress = "0xd6e77b5a4ed04d084c695b313f1d26c9897d5878";
+export const LordAddress = "0x8b37bc5c072941e66d40e6837fe4c83cc18194fd";
+export const MarketPlaceAddress = "0x26f69716c8131095a1b2d72325f5a2e09b322b36";
 export const BankAddress = "0xa59bFDebF3A1E5f1eC524827A51720315ab6D854";
 
 const MAINNET = 250

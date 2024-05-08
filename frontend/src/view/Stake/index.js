@@ -91,12 +91,13 @@ const Stake = () => {
         let unstaked = initUnStakedInfo;
         if (account) {
             const res = await ContractUtils.fetchUnstakedInfo(library, account)
-
+            
             if (res.success) {
                 unstaked.balance = res.status.balances;
                 unstaked.tokenIds = res.status.tokenIds.slice();
                 unstaked.metadatas = res.status.metadatas.slice();
                 setUnStakedInfo(unstaked);
+                console.log(unstaked)
             }
         }
 
@@ -175,8 +176,10 @@ const Stake = () => {
                 tokenId,
             )
             setSelectedStakedTokenIds(newlist)
+            console.log(newlist)
         } else {
             var newlist = selectedStakedTokenIds;
+            
             newlist.push(tokenId);
             setSelectedStakedTokenIds(newlist);
         }
@@ -457,7 +460,7 @@ const Stake = () => {
                                                             alignItems: "center",
                                                         }}
                                                     >
-                                                        <h1>{`NFT ID:${tokenId}`}</h1>
+                                                        <h1>{`NFT IDs:${tokenId}`}</h1>
                                                         <input type={'checkbox'} className={'InputCheck'} checked={selected} onChange={() => stakedNFTClick(tokenId, idx)} />
                                                     </div>
 
@@ -489,9 +492,11 @@ const Stake = () => {
                                     }
                                 })
                                 :
+                                
                                 unstakedInfo && unstakedInfo.tokenIds && unstakedInfo.tokenIds.map((tokenId, idx) => {
                                     const item = unstakedInfo.metadatas[idx];
                                     const selected = IsSelected(UNSTAKETAB, tokenId);
+                                    
                                     if (item.isRonin) {
                                         return (
                                             <div
@@ -518,7 +523,7 @@ const Stake = () => {
                                                             alignItems: "center",
                                                         }}
                                                     >
-                                                        <h1>{`NFT ID:${tokenId}`}</h1>
+                                                        <h1>{`NFTs ID:${tokenId}`}</h1>
                                                         <input type={'checkbox'} className={'InputCheck'} checked={selected} onChange={() => unstakedNFTClick(tokenId, idx)} />
                                                     </div>
 
